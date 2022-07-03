@@ -15,7 +15,7 @@ function App() {
         >
           Learn React
         </a>
-        <h4>이걸 바꿔보겠습니다</h4>
+        <h4>프론트 브런치에서 올라가는겁니다</h4>
       </header>
     </div>
   );
