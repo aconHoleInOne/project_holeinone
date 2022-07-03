@@ -15,7 +15,7 @@ function App() {
         >
           Learn React
         </a>
-        <h4>앙앙앙히릿</h4>
+        <h4>실험</h4>
       </header>
     </div>
   );
