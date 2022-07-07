@@ -1,23 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
+import Main from "../src/pages/Main.js";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>sexy boy sexy girl</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <h4>안녕히계세요 </h4>
-      </header>
-    </div>
+    <Routes>
+      <Route element={<Main />} path="/" />
+    </Routes>
   );
 }
 
