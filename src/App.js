@@ -6,7 +6,10 @@ function App() {
   return (
     <Routes>
       <Route element={<Main />} path="/" />
-      <Route element={<Board />} path="/Board" />
+      <Route element={<Board />} path="/Board">
+        {/* <Route path="/detail/:id"></Route> */}
+      </Route>
+      <Route path="*">없는 페이지</Route>
     </Routes>
   );
 }

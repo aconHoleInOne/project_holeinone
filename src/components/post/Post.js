@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 const Spacer = styled.div`
   height: 3.5rem;
 `;
@@ -83,14 +83,20 @@ function Post() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    (async () => {
-      const rs = await fetch("https://api.coinpaprika.com/v1/coins");
-      const json = await rs.json();
-      setCoins(json.slice(0, 10));
-      setLoading(false);
-    })();
-  }, []);
+    axios.get("https://api.coinpaprika.com/v1/coins").then((results) => {
+      let copy = [...coins, ...results.data];
+      setCoins(copy.slice(0, 100));
+    });
+  });
 
+  // useEffect(() => {
+  //   (async () => {
+  //     const rs = await fetch("https://api.coinpaprika.com/v1/coins");
+  //     const json = await rs.json();
+  //     setCoins(json.slice(0, 10));
+  //     setLoading(false);
+  //   })();
+  // }, []);
   return (
     <>
       <Spacer />
@@ -113,7 +119,7 @@ function Post() {
                   <tr style={{ borderBottom: "1px solid lightgray" }}>
                     <td style={{ padding: "20px" }}>{coins.length - index}</td>
                     <td>
-                      <PostLink to={`/notice/${post.id}`}>{post.id}</PostLink>
+                      <PostLink to={`/coins/${post.id}`}>{post.id}</PostLink>
                     </td>
                     <td>{}</td>
                   </tr>
