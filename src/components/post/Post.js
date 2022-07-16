@@ -83,9 +83,10 @@ function Post() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("https://api.coinpaprika.com/v1/coins").then((results) => {
-      let copy = [...coins, ...results.data];
-      setCoins(copy.slice(0, 100));
+    axios.get("http://localhost:8000/board").then((results) => {
+      console.log(results); 
+      // let copy = [...coins, ...results.data];
+      // setCoins(copy.slice(0, 100));
     });
   });
 
