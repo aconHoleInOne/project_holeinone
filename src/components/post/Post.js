@@ -83,10 +83,9 @@ function Post() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/board").then((results) => {
-      console.log(results); 
-      // let copy = [...coins, ...results.data];
-      // setCoins(copy.slice(0, 100));
+    axios.get("https://api.coinpaprika.com/v1/coins").then((results) => {
+      let copy = [...coins, ...results.data];
+      setCoins(copy.slice(0, 10));
     });
   });
 
@@ -115,12 +114,17 @@ function Post() {
                   <th style={{ width: "15%" }}>작성일</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody key={coins.name}>
                 {coins.map((post, index) => (
                   <tr style={{ borderBottom: "1px solid lightgray" }}>
                     <td style={{ padding: "20px" }}>{coins.length - index}</td>
                     <td>
-                      <PostLink to={`/coins/${post.id}`}>{post.id}</PostLink>
+                      <PostLink
+                        to={{ pathname: `/board/${post.id}` }}
+                        state={post.name}
+                      >
+                        {post.id}
+                      </PostLink>
                     </td>
                     <td>{}</td>
                   </tr>
