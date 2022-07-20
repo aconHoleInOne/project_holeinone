@@ -1,72 +1,88 @@
-import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
-import styled from "styled-components";
-import Slide from "react-reveal/Slide";
-import "./Header.css";
-import menuIcon from "../../img/logo.png";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Responsive from './Responsive';
+import Button from './Button';
+import palette from '../../lib/style/palette';
 
-const LinkTo = styled(Link)`
-  text-decoration: none;
-  color: black;
-  font-size: 15px;
-  &:hover {
-    color: #e8c74d;
+const HeaderBlock = styled.div`
+  position: fixed;
+  width: 100%;
+  background: white;
+  z-index : 100;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+`;
+
+/**
+ * Responsive 컴포넌트의 속성에 스타일을 추가해서 새로운 컴포넌트 생성
+ */
+const Wrapper = styled(Responsive)`
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 자식 엘리먼트 사이에 여백을 최대로 설정 */
+  .logo {
+    font-size: 1.125rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+  .right {
+    display: flex;
+    align-items: center;
   }
 `;
 
-const LogoImg = styled.img`
-  height: 3rem;
+/**
+ * 헤더가 fixed로 되어 있기 때문에 페이지의 컨텐츠가 4rem 아래 나타나도록 해주는 컴포넌트
+ */
+const Spacer = styled.div`
+  height: 4rem;
 `;
 
-const Header = () => {
-  const [menuToggle, setMenuToggle] = useState(false);
+const UserInfo = styled.div`
+  font-weight: 800;
+  margin-right: 1rem;
+`;
+const LevelInfo = styled.div`
+  font-weight: 800;
+  margin-right: 0.5rem;
+`;
 
-  const CkMenuToggle = () => {
-    if (menuToggle) {
-      setMenuToggle(!menuToggle);
-      setTimeout(() => {
-        document.getElementById("toggleMenus").style.display = "none";
-      }, 720);
-    } else {
-      document.getElementById("toggleMenus").style.display = "block";
-      setMenuToggle(!menuToggle);
-    }
-  };
+const LinkTo = styled(Link)`
+  color: black;
+  font-style: oblique;
+  &:hover{
+    color: gray;
+    text-decoration: none;
+  }
+`;
 
+const Ai = styled.span`
+  color : ${palette.indigo[9]};
+`;
+
+const Header = ({ user, onLogout }) => {
   return (
     <>
-      <div className="header">
-        <div className="navBar_toggleBtn">
-          <img
-            className="menu_icon_img"
-            alt="메뉴 드롭 아이콘"
-            onClick={CkMenuToggle}
-          />
-        </div>
-        <div>
-          <Link to="/">
-            <LogoImg src={menuIcon} />
-          </Link>
-        </div>
-        <ul className="navBar_menus">
-          <li className="navBar_menus_menu">
-            <LinkTo to="/swing">SWING</LinkTo>
-          </li>
-          <li className="navBar_menus_menu">
-            <LinkTo to="/board">게시판</LinkTo>
-          </li>
-        </ul>
-      </div>
-      <Slide top when={menuToggle}>
-        <ul id="toggleMenus">
-          <li className="navBar_menus_menu">
-            <LinkTo to="/swing">SWING</LinkTo>
-          </li>
-          <li className="navBar_menus_menu">
-            <LinkTo to="/board">게시판</LinkTo>
-          </li>
-        </ul>
-      </Slide>
+      <HeaderBlock>
+        <Wrapper>
+          <LinkTo to="/main" className="logo" style={{ fontSize: '1.5em'}}>
+            M<Ai>AI</Ai>T
+          </LinkTo>
+          {user ? (
+            <div className="right">
+              <LevelInfo>{user.level}</LevelInfo>
+              <UserInfo>{user.username}</UserInfo>
+              <Button to ='/' onClick={onLogout}>로그아웃</Button>
+            </div>
+          ) : (
+            <div className="right">
+              <Button to="/login">로그인</Button>
+            </div>
+          )}
+        </Wrapper>
+      </HeaderBlock>
+      <Spacer />
     </>
   );
 };
