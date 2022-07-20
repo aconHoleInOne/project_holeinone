@@ -1,16 +1,21 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Route, Routes } from "react-router-dom";
-import Main from "../src/pages/Main.js";
-import PostContent from "./components/post/PostContent.js";
-import Board from "./pages/Board";
+import React from "react";
+import { Route } from "react-router-dom";
+
+import PostListPage from "./pages/PostListPage";
+
+import "./App.css";
+
+import PostPage from "./pages/PostPage";
+import { Helmet } from "react-helmet-async";
 function App() {
   return (
-    <Routes>
-      <Route element={<Main />} path="/" />
-      <Route element={<Board />} path="/Board" />
-      <Route element={<PostContent />} path="/Board/:id" />
-      <Route path="*">없는 페이지</Route>
-    </Routes>
+    <>
+      <Route
+        component={PostListPage}
+        path={["/postlist/@:username", "/postlist"]}
+      />
+      <Route component={PostPage} path="/@:username/:postId" />
+    </>
   );
 }
 
