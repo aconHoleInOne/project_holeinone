@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import exercise2 from '../../img/exercise19.jpg'
-import exercise3 from '../../img/exercise18.jpg'
-import exercise4 from '../../img/exercise20.jpg'
-import exercise5 from '../../img/exercise15.jpg'
+import exercise1 from '../../img/golf1.jpg'
+import exercise2 from '../../img/golf2.jpg'
+import exercise3 from '../../img/golf3.jpg'
 import Slider from 'react-slick';
 import Fade from 'react-reveal';
 import { Link } from 'react-router-dom';
@@ -66,27 +65,21 @@ class MainPhoto extends React.Component {
             <Fade cascade>
             <Slider {...settings}>
             <Wrap>
+                <img src = {exercise1} width='100%' height='600px'></img>
+                <Text>
+                    <H><LinkTo to="/todaysw">start now!</LinkTo></H>
+                </Text>
+            </Wrap>
+            <Wrap>
                 <img src = {exercise2} width='100%' height='600px'></img>
                 <Text>
-                    <H><LinkTo to="/todaytr">start now!</LinkTo></H>
+                    <H><LinkTo to="/todaysw">start now!</LinkTo></H>
                 </Text>
             </Wrap>
             <Wrap>
                 <img src = {exercise3} width='100%' height='600px'></img>
                 <Text>
-                    <H><LinkTo to="/todaytr">start now!</LinkTo></H>
-                </Text>
-            </Wrap>
-            <Wrap>
-                <img src = {exercise4} width='100%' height='600px'></img>
-                <Text>
-                    <H><LinkTo to="/todaytr">start now!</LinkTo></H>
-                </Text>
-            </Wrap>
-            <Wrap>
-                <img src = {exercise5} width='100%' height='600px'></img>
-                <Text>
-                    <H><LinkTo to="/todaytr">start now!</LinkTo></H>
+                    <H><LinkTo to="/todaysw">start now!</LinkTo></H>
                 </Text>
             </Wrap>
             </Slider>

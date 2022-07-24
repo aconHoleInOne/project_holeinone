@@ -90,16 +90,16 @@ export default function MainCard() {
           STEP 1
         </Typography>
         <Typography variant="h5" component="h2">
-          오늘의 운동
+          오늘의 스윙
         </Typography>
         <Typography variant="body2" component="p">
           <br/>
-          시작 버튼을 누르고 준비된 운동을 완료하세요.<br/>
-          운동 자세를 인식하여 완료 후 운동 자세를 분석해줍니다.           
+          시작 버튼을 누르고 골프스윙을 해보세요.<br/>
+          스윙 자세를 인식하여 완료 후 분석을 해줍니다.           
         </Typography>
       </CardContent>
       <CardActions>
-        <LinkTo to="/todaytr">
+        <LinkTo to="/todaysw">
         <Button size="large" startIcon={<NavigateNextIcon />} style={{fontWeight:'bold'}}>지금 시작하기</Button>
         </LinkTo>
       </CardActions>
@@ -112,67 +112,21 @@ export default function MainCard() {
           STEP 2
         </Typography>
         <Typography variant="h5" component="h2">
-          운동 일지
+          게시판
         </Typography>
         <Typography variant="body2" component="p">
           <br/>
-          캘린더에서 당신만의 운동 일지를 확인해보세요.<br/>
-          언제, 얼마나 열심히 운동했는지 볼 수 있습니다. <br/>
+          골프장 정보, 스윙 리뷰, 골프용품 리뷰 등 다양한 이야기를 나누어 보세요.<br/>
+          <br/>
         </Typography>
       </CardContent>
       <CardActions>
-        <LinkTo to="/calendar">
+        <LinkTo to="/postlist">
         <Button size="large" startIcon={<NavigateNextIcon />}  style={{fontWeight:'bold'}}>지금 확인하기</Button>
         </LinkTo>
       </CardActions>
     </Card>
     </InDiv>
-    </Wrapper>
-    <Wrapper>
-    <InDiv>
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          STEP 3
-        </Typography>
-        <Typography variant="h5" component="h2">
-          커뮤니티
-        </Typography>
-        <Typography variant="body2" component="p">
-          <br/>
-          매일 새로운 글들이 당신을 기다립니다.<br/>
-          유저들의 운동 이야기를 보고, 당신만의 운동 노하우를 나눠보세요.
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <LinkTo to="/postlist">
-        <Button size="large" startIcon={<NavigateNextIcon />}  style={{fontWeight:'bold'}}>새 글 보러가기</Button>
-        </LinkTo>
-      </CardActions>
-      </Card>
-    </InDiv>
-    <InDiv>
-      <Card className={classes.root}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          STEP 4
-        </Typography>
-        <Typography variant="h5" component="h2">
-          마이페이지
-        </Typography>
-        <Typography variant="body2" component="p">
-          <br/>
-          당신의 운동 레벨과 경험치를 확인하세요.<br/>
-          총 운동 시간에 따라 7개의 레벨로 나눠집니다.<br/>
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <LinkTo to="/mypage">
-        <Button className={classes.button} startIcon={<NavigateNextIcon />}  size="large" style={{fontWeight:'bold'}}>지금 확인하기</Button>
-        </LinkTo>
-      </CardActions>
-      </Card>
-      </InDiv>
     </Wrapper>
     </>
   );

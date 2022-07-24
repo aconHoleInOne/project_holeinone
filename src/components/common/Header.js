@@ -67,7 +67,7 @@ const Header = ({ user, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <LinkTo to="/main" className="logo" style={{ fontSize: '1.5em'}}>
-            M<Ai>AI</Ai>T
+            HOLE<Ai>IN</Ai>ONE
           </LinkTo>
           {user ? (
             <div className="right">
