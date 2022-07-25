@@ -7,6 +7,7 @@ import PostPage from "./pages/PostPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import MainPage from "./pages/MainPage";
+import TodayTr from "./pages/TodayTr";
 function App() {
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
       <Route component={MainPage} path="/main" />
-    
+      <Route component={TodayTr} path="/todaytr" />
     </>
   );
 }

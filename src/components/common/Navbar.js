@@ -34,7 +34,7 @@ const Navbar = () => {
         <>
         <NavBlock>
             <Wrapper>
-                <LinkTo to="/todaysw" className="logo">
+                <LinkTo to="/todayTr" className="logo">
                     오늘의 스윙
                 </LinkTo>
                 <LinkTo to="/postlist" className="logo">

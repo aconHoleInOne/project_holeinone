@@ -99,7 +99,7 @@ export default function MainCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <LinkTo to="/todaysw">
+        <LinkTo to="/todayTr">
         <Button size="large" startIcon={<NavigateNextIcon />} style={{fontWeight:'bold'}}>지금 시작하기</Button>
         </LinkTo>
       </CardActions>

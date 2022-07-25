@@ -65,21 +65,21 @@ class MainPhoto extends React.Component {
             <Fade cascade>
             <Slider {...settings}>
             <Wrap>
-                <img src = {exercise1} width='100%' height='600px'></img>
+                <img src = {exercise1} width='100%' height='600px' alt='ex1'></img>
                 <Text>
-                    <H><LinkTo to="/todaysw">start now!</LinkTo></H>
+                    <H><LinkTo to="/todayTr">start now!</LinkTo></H>
                 </Text>
             </Wrap>
             <Wrap>
-                <img src = {exercise2} width='100%' height='600px'></img>
+                <img src = {exercise2} width='100%' height='600px' alt='ex2'></img>
                 <Text>
-                    <H><LinkTo to="/todaysw">start now!</LinkTo></H>
+                    <H><LinkTo to="/todayTr">start now!</LinkTo></H>
                 </Text>
             </Wrap>
             <Wrap>
-                <img src = {exercise3} width='100%' height='600px'></img>
+                <img src = {exercise3} width='100%' height='600px' alt='ex3'></img>
                 <Text>
-                    <H><LinkTo to="/todaysw">start now!</LinkTo></H>
+                    <H><LinkTo to="/todayTr">start now!</LinkTo></H>
                 </Text>
             </Wrap>
             </Slider>
