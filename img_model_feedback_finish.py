@@ -181,6 +181,7 @@ tiger_finish_img = cv2.imread('tiger_finish.png')
 tiger_finish_results = pose.process(cv2.cvtColor(tiger_finish_img, cv2.COLOR_BGR2RGB))
 
 tiger_angles = dict()
+#dhalkfd
 tiger_angles['address'] = {'waist':calculateAngle(tiger_addr_results.pose_landmarks.landmark[12], #r_shoulder_x,r_shoulder_y
                                                  tiger_addr_results.pose_landmarks.landmark[24], #r_hip_x, r_hip_y
                                                  tiger_addr_results.pose_landmarks.landmark[26]), #r_knee_x, r_knee_y
