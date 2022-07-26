@@ -1,0 +1,103 @@
+//mysql 에 스켈레톤 정보를 저장하는 img_landmark 테이블
+create table img_landmark(
+ img_landmark_num int primary key auto increment, #형이랑 같이 해서 나온 아이디어
+ image_id varchar(255),
+ upload_date timestamp,
+ member_id varchar(50),
+ r_shoulder_x double,
+ r_shoulder_y double,
+ r_shoulder_z double,
+ l_shoulder_x double,
+ l_shoulder_y double,
+ l_shoulder_z double,
+ r_elbow_x double,
+ r_elbow_y double,
+ r_elbow_z double,
+ l_elbow_x double,
+ l_elbow_y double,
+ l_elbow_z double,
+ r_wrist_x double,
+ r_wrist_y double,
+ r_wrist_z double,
+ l_wrist_x double,
+ l_wrist_y double,
+ l_wrist_z double,
+ r_hip_x double,
+ r_hip_y double,
+ r_hip_z double,
+ l_hip_x double,
+ l_hip_y double,
+ l_hip_z double,
+ r_knee_x double,
+ r_knee_y double,
+ r_knee_z double,
+ l_knee_x double,
+ l_knee_y double,
+ l_knee_z double,
+ r_ankle_x double,
+ r_ankle_y double,
+ r_ankle_z double,
+ l_ankle_x double,
+ l_ankle_y double,
+ l_ankle_z double,
+ r_heel_x double,
+ r_heel_y double,
+ r_heel_z double,
+ l_heel_x double,
+ l_heel_y double,
+ l_heel_z double,
+ r_foot_x double,
+ r_foot_y double,
+ r_foot_z double,
+ l_foot_x double,
+ l_foot_y double,
+ l_foot_z double,
+ 
+constraint  FK_MEMBER_ID foreign key (MEMBER_ID)
+references MEMBER(MEMBER_ID)
+ON DELETE SET NULL
+ON UPDATE CASCADE
+);
+
+
+#insert 조건
+1. member 에 user_id 등록된 사람만 insert 가능
+//table 테스트 insert 문 (member table 에 user_id : min1234 있어야 함)
+insert into img_landmark values (
+'min1234_2022720_swingImage_126','2022-07-20 12:35:00.293573','min1234',
+ 0.4787115454673767, 0.41680365800857544, -0.0007215420482680202,
+ 0, 0, 0,
+ 0.39687907695770264,0.44907674193382263, -0.2207508385181427,
+ 0.5156571865081787, 0.4514375627040863, -0.0020702825859189034,
+ -0.4683382511138916, 0, 0,
+ -0.15834198892116547, 0, 0,
+ 0.373552143573761, 0.6191657781600952, -0.0875185951590538,
+ 0.4311714768409729, 0.6352621912956238, 0.08733617514371872,
+ 0.4349907338619232, 0.7725939750671387, -0.3514305353164673,
+ 0.5036473274230957, 0.7589656710624695, -0.132025808095932,
+ 0.4358583390712738, 0.9533002972602844, -0.366622656583786,
+ 0.46738678216934204, 0.9277912378311157, -0.07879387587308884,
+ 0.4201728403568268, 0.9776880145072937, -0.3715340495109558,
+ 0.444527804851532, 0.9533094167709351, -0.08214595913887024,
+ 0.49127188324928284, 0.9914689064025879, -0.5321345925331116,
+ 0.5307071208953857, 0.9554611444473267, -0.21222396194934845);
+
+
+ # swing result 테이블 수정 해야함 .
+ 
+
+create table swing_result(
+	swing_num int primary key auto_increment,
+    member_id varchar(50) not null,
+    address_img varchar(255),
+    top_img varchar(255),
+    finish_img varchar(255),
+    address_feedback MEDIUMTEXT,
+    top_feedback MEDIUMTEXT,
+    finish_feedback MEDIUMTEXT,
+    date datetime default now(),
+    
+    constraint member_id_fk_swingResult foreign key (member_id) references member(member_id)
+    on update cascade
+    on delete cascade
+);

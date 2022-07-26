@@ -1,0 +1,4 @@
+﻿0. 몽고 디비 있어야함
+1.upload_video_image_mysql_test.py
+2. tiger_wood_image_save.py
+3. img_model_feddback_finish.py

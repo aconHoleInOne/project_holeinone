@@ -1,0 +1,11 @@
+★ python 가상환경에 깔아야하는것★
+
+    ★ pip install tensorflow
+    ★ pip install sklearn
+    ★ pip install mediapipe
+    ★ pip install pymysql
+    ★ pip install cryptography
+    ★ pip install pandas
+    ★ pip install opencv-python
+    ★ pip install pymongo
+    ★ pip install PyMysql
